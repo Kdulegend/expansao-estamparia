@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estamparia Expansão</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Estamparia Expansão: fábrica de uniformes e camisetas personalizadas em Salto/SP desde 2020. Confecção própria, estampa DTF e sublimação total para empresas, escolas, times e eventos.">
+<meta property="og:title" content="Estamparia Expansão | Do corte à estampa">
+<meta property="og:description" content="Fábrica própria em Salto/SP desde 2020. Uniformes, interclasses, 9º ano, terceirão, times e eventos.">
+<meta property="og:image" content="assets/logo-selo.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Josefin+Sans:wght@200;300;400&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: fábrica à noite. Faixas pretas largas, uma faixa clara de "ficha técnica" e o azul royal só onde há ação. */
+:root{
+  --ink:#0A0A0C;        /* preto do selo */
+  --ink-2:#141519;      /* superfície elevada */
+  --paper:#F2F2EF;      /* branco do traço */
+  --royal:#2F35E0;      /* azul dos posts */
+  --royal-deep:#161A86;
+  --steel:#8D90A6;      /* cinza puxado para o azul */
+  --line:rgba(242,242,239,.14);
+  --line-dark:rgba(10,10,12,.14);
+
+  --f-display:"Archivo","Arial Black",system-ui,sans-serif;
+  --f-thin:"Josefin Sans","Century Gothic","Futura",system-ui,sans-serif;
+  --f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --gutter:clamp(16px,4vw,48px);
+  --max:1180px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--ink);color:var(--paper);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--royal);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;line-height:.95}
+.eyebrow{font:500 12px/1.3 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+.thin{font-family:var(--f-thin);font-weight:200;letter-spacing:.02em}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 15px/1 var(--f-display);font-stretch:110%;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:16px 22px;border-radius:2px;border:1.5px solid transparent;transition:transform .15s,background .15s,color .15s;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-royal{background:var(--royal);color:#fff}
+.btn-royal:hover{background:#4147f0}
+.btn-ghost{border-color:var(--line);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--paper)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* Cabeçalho */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(10,10,12,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:38px;height:38px}
+.brand span{display:flex;flex-direction:column;line-height:1}
+.brand b{font:800 14px/1 var(--f-display);font-stretch:112%;letter-spacing:.08em}
+.brand i{font:300 15px/1.1 var(--f-thin);font-style:normal;letter-spacing:.12em}
+.nav{display:flex;gap:26px;font:500 14px var(--f-body)}
+.nav a{text-decoration:none;color:var(--steel)}
+.nav a:hover{color:var(--paper)}
+.top .btn{padding:11px 16px;font-size:13px}
+@media (max-width:860px){.nav{display:none}}
+@media (max-width:420px){.top .btn span{display:none}}
+
+/* Hero */
+.hero{position:relative;padding-block:clamp(48px,8vw,96px) clamp(56px,8vw,104px);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero-copy{min-width:0;display:grid;gap:26px}
+.hero h1{font-size:clamp(52px,9.4vw,124px);font-weight:900;font-stretch:118%;letter-spacing:-.02em;text-transform:uppercase}
+.hero h1 em{display:block;font-style:italic;color:var(--royal);font-stretch:125%}
+.hero h1 .thin{display:block;font-size:.42em;text-transform:none;letter-spacing:.04em;color:var(--paper);margin-top:.25em;font-style:normal}
+.hero p.lead{font-size:clamp(17px,1.6vw,20px);max-width:52ch;color:#cfd0da;margin:0}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.vertical{position:absolute;left:max(8px,env(safe-area-inset-left,0px));top:50%;transform:translate(0,-50%) rotate(180deg);writing-mode:vertical-rl;font:500 11px var(--f-mono);letter-spacing:.42em;color:var(--steel);opacity:.7}
+@media (max-width:1100px){.vertical{display:none}}
+
+.hero-visual{position:relative;min-width:0}
+.photo-main{aspect-ratio:4/5;width:100%;max-width:100%;object-fit:cover;border-radius:2px;filter:saturate(1.05)}
+.ticket{position:absolute;left:-28px;bottom:-26px;width:min(300px,82%);background:var(--paper);color:var(--ink);padding:18px 18px 16px;border-radius:2px;box-shadow:0 24px 50px rgba(0,0,0,.55);font:400 12.5px/1.5 var(--f-mono)}
+.ticket::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:var(--royal)}
+.ticket h4{margin:0 0 10px;font:800 13px var(--f-display);font-stretch:115%;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}
+.ticket dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0}
+.ticket dt{color:#6b6e80}
+.ticket dd{margin:0;font-weight:500}
+.steps{display:flex;gap:4px;margin-top:12px}
+.steps span{flex:1;height:6px;background:#d9d9e2}
+.steps span.on{background:var(--ink)}
+.steps span.now{background:var(--royal);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.45}}
+.ticket small{display:block;margin-top:6px;color:#6b6e80;letter-spacing:.06em}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-visual{max-width:440px}
+  .ticket{left:auto;right:-8px}
+}
+
+/* Faixa corrida */
+.marquee{background:var(--royal);color:#fff;overflow:hidden;border-block:1px solid var(--royal-deep)}
+.marquee-track{display:flex;width:max-content;animation:run 32s linear infinite}
+.marquee span{font:800 italic clamp(18px,2.4vw,26px)/1 var(--f-display);font-stretch:120%;text-transform:uppercase;letter-spacing:.02em;padding:18px 0;white-space:nowrap}
+.marquee span::after{content:"✦";font-style:normal;margin:0 28px;opacity:.6}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* Seções */
+section{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(32px,5vw,56px);max-width:760px}
+.sec-head h2{font-size:clamp(38px,5.6vw,72px);font-weight:900;font-stretch:115%;text-transform:uppercase;letter-spacing:-.01em}
+.sec-head h2 em{color:var(--royal);font-style:italic}
+.sec-head p{margin:0;color:#c3c4cf;max-width:60ch}
+
+/* Fábrica */
+.factory .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,72px);align-items:center}
+.factory figure{margin:0;position:relative;min-width:0}
+.factory figure img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px}
+.factory figcaption{margin-top:10px;font:400 12px var(--f-mono);color:var(--steel);letter-spacing:.06em}
+.factory .text{min-width:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:36px}
+.stat{padding:20px 16px 0 0;display:grid;gap:4px}
+.stat b{font:900 clamp(30px,3.6vw,46px)/1 var(--f-display);font-stretch:112%;font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;color:var(--steel);line-height:1.35}
+@media (max-width:860px){.factory .wrap{grid-template-columns:1fr}.factory figure{max-width:420px}.stats{grid-template-columns:repeat(2,1fr);row-gap:20px}}
+
+/* Xadrez da fachada */
+.checker{height:28px;background:conic-gradient(var(--paper) 25%,var(--ink) 0 50%,var(--paper) 0 75%,var(--ink) 0) 0 0/28px 28px;opacity:.9}
+
+/* Processo */
+.process ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
+.process li{padding:24px 20px 8px 0;display:grid;gap:10px;align-content:start;position:relative;min-width:0}
+.process li::before{content:"";position:absolute;top:-1px;left:0;width:40px;height:3px;background:var(--royal)}
+.process .n{font:500 12px var(--f-mono);color:var(--steel);letter-spacing:.1em}
+.process h3{font-size:clamp(22px,2.2vw,28px);font-weight:800;font-stretch:115%;text-transform:uppercase}
+.process p{margin:0;font-size:15px;color:#c3c4cf}
+@media (max-width:960px){.process ol{grid-template-columns:repeat(2,1fr);column-gap:24px}}
+@media (max-width:520px){.process ol{grid-template-columns:1fr}}
+
+/* Técnicas (faixa clara) */
+.tech{background:var(--paper);color:var(--ink)}
+.tech .eyebrow{color:#5d6075}
+.tech .sec-head p{color:#3d3f4d}
+.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.5vw,28px)}
+.tech-card{border:1.5px solid var(--ink);padding:clamp(22px,3vw,36px);display:grid;gap:18px;align-content:start;min-width:0;border-radius:2px}
+.tech-card.alt{background:var(--ink);color:var(--paper)}
+.tech-card h3{font-size:clamp(34px,4.4vw,56px);font-weight:900;font-style:italic;font-stretch:122%;text-transform:uppercase}
+.tech-card .tag{font:500 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border:1px solid currentColor;justify-self:start;border-radius:2px}
+.tech-card p{margin:0;max-width:46ch}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:0;font-size:15px;border-top:1px solid var(--line-dark);padding-top:18px}
+.tech-card.alt .spec{border-color:var(--line)}
+.spec dt{font:500 12px/1.9 var(--f-mono);text-transform:uppercase;letter-spacing:.1em;opacity:.65}
+.spec dd{margin:0}
+@media (max-width:760px){.tech-grid{grid-template-columns:1fr}}
+
+/* Para quem */
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.who{background:var(--ink);padding:28px 22px 30px;display:grid;gap:12px;align-content:start;min-width:0;transition:background .2s}
+.who:hover{background:var(--ink-2)}
+.who svg{width:34px;height:34px;color:var(--royal)}
+.who h3{font-size:24px;font-weight:800;font-stretch:115%;text-transform:uppercase}
+.who p{margin:0;font-size:15px;color:#c3c4cf}
+.who ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.who li{font:500 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);padding:5px 8px;border-radius:2px;color:var(--paper)}
+@media (max-width:960px){.who-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.who-grid{grid-template-columns:1fr}}
+
+/* Trabalhos */
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,20px)}
+.work{margin:0;min-width:0}
+.work img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:2px;transition:transform .35s}
+.work:hover img{transform:scale(1.02)}
+.work figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:12px;font-size:15px}
+.work figcaption span{font:500 11px/1.9 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--steel);white-space:nowrap}
+.work-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+.work-cta p{margin:0;color:#c3c4cf}
+@media (max-width:760px){.work-grid{grid-template-columns:1fr 1fr}.work:last-child{grid-column:1/-1}.work:last-child img{aspect-ratio:16/10}}
+
+/* Orçamento */
+.quote{background:linear-gradient(180deg,var(--royal-deep),var(--ink) 85%)}
+.quote .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,72px)}
+.quote .sec-head{margin:0}
+.quote .side{display:grid;gap:24px;align-content:start;min-width:0}
+.contact-list{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.contact-list li{display:grid;gap:2px}
+.contact-list b{font:500 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+.contact-list span{font-size:18px;user-select:all}
+form{background:var(--ink);border:1px solid var(--line);padding:clamp(20px,3vw,32px);display:grid;gap:16px;border-radius:2px;min-width:0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:560px){.row{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--steel)}
+input,select,textarea{font:400 16px var(--f-body);color:var(--paper);background:var(--ink-2);border:1px solid var(--line);border-radius:2px;padding:13px 14px;width:100%;min-width:0}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--royal)}
+textarea{resize:vertical;min-height:96px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{cursor:pointer;text-transform:none;letter-spacing:0;font:500 14px var(--f-body);color:var(--paper);border:1px solid var(--line);padding:9px 14px;border-radius:2px}
+.chips input:checked+label{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.chips input:focus-visible+label{outline:2px solid var(--royal);outline-offset:2px}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:8px;min-width:0}
+legend{font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--steel);padding:0;margin-bottom:8px}
+.form-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.form-foot small{color:var(--steel);font-size:13px;max-width:34ch}
+.preview{border-left:3px solid var(--royal);background:var(--ink-2);padding:14px 16px;font:400 13px/1.55 var(--f-mono);white-space:pre-wrap;color:#d6d7e2;overflow-wrap:anywhere}
+.preview-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.preview-actions output{font-size:13px;color:var(--steel)}
+@media (max-width:900px){.quote .wrap{grid-template-columns:1fr}}
+
+/* Visite */
+.visit .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,64px);align-items:stretch}
+.mapcard{position:relative;min-height:320px;border:1px solid var(--line);border-radius:2px;overflow:hidden;background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/44px 44px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/44px 44px,var(--ink-2);text-decoration:none;display:block;min-width:0}
+.mapcard .street{position:absolute;left:-10%;right:-10%;top:52%;height:22px;background:#24262e;transform:rotate(-8deg)}
+.mapcard .street::after{content:"R. MONSENHOR COUTO";position:absolute;left:12%;top:4px;font:500 10px var(--f-mono);letter-spacing:.3em;color:var(--steel)}
+.mapcard .street2{position:absolute;top:-10%;bottom:-10%;left:62%;width:18px;background:#24262e;transform:rotate(12deg)}
+.pin{position:absolute;left:50%;top:44%;transform:translate(-50%,-100%);display:grid;justify-items:center;gap:6px}
+.pin img{width:64px;height:64px;border-radius:50%;box-shadow:0 0 0 4px var(--royal),0 14px 30px rgba(0,0,0,.6)}
+.pin span{font:800 12px var(--f-display);font-stretch:115%;letter-spacing:.1em;text-transform:uppercase;background:var(--royal);color:#fff;padding:6px 10px;border-radius:2px;white-space:nowrap}
+.mapcard .open{position:absolute;right:14px;bottom:14px;font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;background:var(--paper);color:var(--ink);padding:9px 12px;border-radius:2px}
+.hours{display:grid;gap:0;margin:0;border-top:1px solid var(--line)}
+.hours div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.hours dt{color:#c3c4cf}
+.hours dd{margin:0;font-weight:600}
+.visit .info{display:grid;gap:22px;align-content:start;min-width:0}
+.addr{font:800 clamp(24px,2.8vw,34px)/1.1 var(--f-display);font-stretch:112%;text-transform:uppercase}
+.addr small{display:block;font:300 20px/1.4 var(--f-thin);text-transform:none;color:var(--steel);margin-top:6px}
+@media (max-width:860px){.visit .wrap{grid-template-columns:1fr}}
+
+/* Rodapé */
+footer{border-top:1px solid var(--line);padding-block:48px calc(40px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center}
+footer img{width:150px}
+footer p{margin:0;color:var(--steel);font-size:14px}
+footer nav{display:flex;gap:18px;font-size:14px}
+footer nav a{color:var(--steel);text-decoration:none}
+footer nav a:hover{color:var(--paper)}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+
+/* Botão flutuante WhatsApp */
+.wa-float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:55;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.5);transition:transform .15s}
+.wa-float:hover{transform:scale(1.06)}
+.wa-float svg{width:30px;height:30px;color:#fff}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Estamparia Expansão, início">
+      <img src="assets/simbolo-branco.png" alt="">
+      <span><b>ESTAMPARIA</b><i>EXPANSÃO</i></span>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#fabrica">A fábrica</a>
+      <a href="#tecnicas">Técnicas</a>
+      <a href="#para-quem">Para quem</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#visite">Visite</a>
+    </nav>
+    <a class="btn btn-royal" href="#orcamento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H8l-4 4z"/></svg><span>Orçamento</span></a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<section class="hero">
+  <div class="vertical" aria-hidden="true">EXPANSAO_ESTAMPARIA</div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">Fábrica em Salto/SP · desde 2020</div>
+      <h1>Do corte <em>à estampa.</em><span class="thin">Sua ideia, estampada.</span></h1>
+      <p class="lead">Uniformes, camisetas de turma, times e eventos feitos do tecido à peça pronta, na nossa própria fábrica. Você fala com quem corta, costura e estampa.</p>
+      <div class="ctas">
+        <a class="btn btn-royal" href="#orcamento">Pedir orçamento
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#trabalhos">Ver trabalhos</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="photo-main" src="assets/polo-bordo.jpg" alt="Camisa polo bordô com logo bordado de cliente, produzida pela Estamparia Expansão">
+      <div class="ticket" aria-label="Exemplo de ordem de produção">
+        <h4><span>Ordem de produção</span><span>#0627</span></h4>
+        <dl>
+          <dt>Cliente</dt><dd>Terceirão 2026</dd>
+          <dt>Peça</dt><dd>Camiseta de turma</dd>
+          <dt>Técnica</dt><dd>Sublimação total</dd>
+          <dt>Grade</dt><dd>P · M · G · GG</dd>
+        </dl>
+        <div class="steps" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span class="now"></span><span></span></div>
+        <small>ARTE · CORTE · COSTURA · <b>ESTAMPA</b> · ENTREGA</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Uniformes</span><span>Interclasses</span><span>Nono ano</span><span>Terceirão</span><span>Times</span><span>Eventos</span><span>Estampa DTF</span><span>Sublimação total</span><span>Confecção própria</span>
+    <span>Uniformes</span><span>Interclasses</span><span>Nono ano</span><span>Terceirão</span><span>Times</span><span>Eventos</span><span>Estampa DTF</span><span>Sublimação total</span><span>Confecção própria</span>
+  </div>
+</div>
+
+<section class="factory" id="fabrica">
+  <div class="wrap">
+    <figure>
+      <img src="assets/fachada.jpg" alt="Fachada da Estamparia Expansão à noite, no centro de Salto">
+      <figcaption>Rua Monsenhor Couto, 494 · Centro · Salto/SP</figcaption>
+    </figure>
+    <div class="text">
+      <div class="sec-head">
+        <div class="eyebrow">A fábrica</div>
+        <h2>Tudo sob <em>o mesmo teto.</em></h2>
+        <p>A Expansão nasceu em 2020 como estamparia e cresceu para virar fábrica. Hoje a malha chega crua e sai daqui cortada, costurada e estampada. Sem terceirizar etapa, fica mais fácil cumprir prazo, acertar a grade e manter o padrão de um pedido para o outro.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>2020</b><span>ano em que a fábrica começou</span></div>
+        <div class="stat"><b>6 anos</b><span>completados em setembro de 2026</span></div>
+        <div class="stat"><b>9,3 mil</b><span>seguidores acompanhando a produção</span></div>
+        <div class="stat"><b>100%</b><span>das etapas feitas na casa</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="checker" aria-hidden="true"></div>
+
+<section class="process" id="processo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Como o pedido anda</div>
+      <h2>Do corte <em>à estampa</em>, em cinco etapas.</h2>
+    </div>
+    <ol>
+      <li><span class="n">01</span><h3>Arte</h3><p>Você manda a ideia, o logo ou o rascunho. A gente monta a arte e envia para aprovação antes de produzir.</p></li>
+      <li><span class="n">02</span><h3>Corte</h3><p>Malha escolhida e cortada na grade do pedido, do P ao GG, incluindo tamanhos infantis quando precisa.</p></li>
+      <li><span class="n">03</span><h3>Costura</h3><p>Montagem das peças na nossa confecção, com gola, punho e acabamento no padrão combinado.</p></li>
+      <li><span class="n">04</span><h3>Estampa</h3><p>Aplicação em DTF ou sublimação total, de acordo com o tecido e o efeito que a arte pede.</p></li>
+      <li><span class="n">05</span><h3>Entrega</h3><p>Conferência peça a peça, separação por tamanho e retirada na loja em Salto ou entrega combinada.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="tech" id="tecnicas">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Técnicas</div>
+      <h2>Duas técnicas, <em>cada uma no seu tecido.</em></h2>
+      <p>A escolha depende da malha e do desenho. Se ficar em dúvida, mande a arte que a gente indica o melhor caminho.</p>
+    </div>
+    <div class="tech-grid">
+      <article class="tech-card">
+        <span class="tag">Estampa por filme</span>
+        <h3>DTF</h3>
+        <p>A arte é impressa num filme e transferida para a peça com calor. Funciona em algodão, poliéster e misturas, inclusive em malha preta ou colorida.</p>
+        <dl class="spec">
+          <dt>Ideal para</dt><dd>Logos, brasões, nomes e números</dd>
+          <dt>Tecidos</dt><dd>Algodão, poliéster, PV e malhas escuras</dd>
+          <dt>Destaque</dt><dd>Cores vivas e detalhes finos em qualquer cor de peça</dd>
+        </dl>
+      </article>
+      <article class="tech-card alt">
+        <span class="tag">Total print</span>
+        <h3>Sublimação total</h3>
+        <p>A tinta vira parte do tecido, de ponta a ponta da peça. A estampa não descasca e não pesa, porque não fica uma camada por cima.</p>
+        <dl class="spec">
+          <dt>Ideal para</dt><dd>Camisas de time, interclasse e turma</dd>
+          <dt>Tecidos</dt><dd>Poliéster em base clara</dd>
+          <dt>Destaque</dt><dd>Desenho na peça inteira, sem limite de cores</dd>
+        </dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="who-sec" id="para-quem">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Para quem fazemos</div>
+      <h2>Da empresa <em>à formatura.</em></h2>
+    </div>
+    <div class="who-grid">
+      <article class="who">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3 4 6l2 4 2-1v12h8V9l2 1 2-4-4-3c-1 2-2.5 3-4 3S9 5 8 3z"/></svg>
+        <h3>Empresas</h3>
+        <p>Uniformes que aguentam lavagem e rotina, com a marca da sua empresa aplicada do jeito certo.</p>
+        <ul><li>Polos</li><li>Camisetas</li><li>Recepção</li><li>Operação</li></ul>
+      </article>
+      <article class="who">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>
+        <h3>Escolas</h3>
+        <p>Camisetas de turma com a cara de quem vai usar. Atendemos a escola ou a comissão de formatura direto.</p>
+        <ul><li>Interclasse</li><li>9º ano</li><li>Terceirão</li></ul>
+      </article>
+      <article class="who">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 5h-5L8 10z"/></svg>
+        <h3>Times</h3>
+        <p>Jogo completo com nome e número em cada camisa, do futebol de várzea ao campeonato da empresa.</p>
+        <ul><li>Nome</li><li>Número</li><li>Patrocínio</li></ul>
+      </article>
+      <article class="who">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V4l14 5-14 5"/></svg>
+        <h3>Eventos</h3>
+        <p>Camisetas para corrida, igreja, festa da empresa ou família reunida, com prazo combinado antes de começar.</p>
+        <ul><li>Corridas</li><li>Encontros</li><li>Ações</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="work-sec" id="trabalhos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">O que produzimos</div>
+      <h2>Saiu da <em>nossa fábrica.</em></h2>
+    </div>
+    <div class="work-grid">
+      <figure class="work"><img src="assets/polo-bordo.jpg" alt="Polo bordô com logo de concessionária" loading="lazy"><figcaption>Polo corporativa<span>Empresas</span></figcaption></figure>
+      <figure class="work"><img src="assets/uniformes-laranja.jpg" alt="Uniformes preto e laranja dobrados e embalados" loading="lazy"><figcaption>Uniforme de oficina<span>Empresas</span></figcaption></figure>
+      <figure class="work"><img src="assets/gola-detalhe.jpg" alt="Detalhe de golas de polo pretas com frisos coloridos" loading="lazy"><figcaption>Gola com frisos sob medida<span>Acabamento</span></figcaption></figure>
+    </div>
+    <div class="work-cta">
+      <p>São mais de 300 trabalhos publicados no nosso Instagram.</p>
+      <a class="btn btn-ghost" href="https://www.instagram.com/expansao_estamparia/" target="_blank" rel="noopener">@expansao_estamparia
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="quote" id="orcamento">
+  <div class="wrap">
+    <div class="side">
+      <div class="sec-head">
+        <div class="eyebrow">Orçamento</div>
+        <h2>Conta pra gente <em>o que vai estampar.</em></h2>
+        <p>Preencha o básico e o pedido abre direto no nosso WhatsApp, já escrito. A resposta vem de quem está na produção.</p>
+      </div>
+      <ul class="contact-list">
+        <li><b>WhatsApp</b><span>(11) 91737-8515</span></li>
+        <li><b>Instagram</b><span>@expansao_estamparia</span></li>
+        <li><b>Endereço</b><span>R. Monsenhor Couto, 494 · Centro · Salto/SP</span></li>
+      </ul>
+    </div>
+
+    <form id="quote-form" novalidate>
+      <div class="row">
+        <label for="q-nome">Seu nome<input id="q-nome" name="nome" autocomplete="name" placeholder="Ex.: Mariana"></label>
+        <label for="q-org">Empresa, escola ou time<input id="q-org" name="org" placeholder="Ex.: 3º ano B"></label>
+      </div>
+      <fieldset>
+        <legend>O que você precisa</legend>
+        <div class="chips">
+          <input type="radio" name="tipo" id="t1" value="Uniformes" checked><label for="t1">Uniformes</label>
+          <input type="radio" name="tipo" id="t2" value="Camiseta de turma"><label for="t2">Camiseta de turma</label>
+          <input type="radio" name="tipo" id="t3" value="Camisa de time"><label for="t3">Time</label>
+          <input type="radio" name="tipo" id="t4" value="Evento"><label for="t4">Evento</label>
+          <input type="radio" name="tipo" id="t5" value="Sacolas para comércio"><label for="t5">Sacolas</label>
+        </div>
+      </fieldset>
+      <div class="row">
+        <label for="q-qtd">Quantidade aproximada<input id="q-qtd" name="qtd" inputmode="numeric" placeholder="Ex.: 40 peças"></label>
+        <label for="q-tec">Técnica
+          <select id="q-tec" name="tec">
+            <option>Não sei, me indiquem</option>
+            <option>DTF</option>
+            <option>Sublimação total</option>
+          </select>
+        </label>
+      </div>
+      <label for="q-prazo">Para quando<input id="q-prazo" name="prazo" placeholder="Ex.: interclasse em 15/11"></label>
+      <label for="q-msg">Detalhes<textarea id="q-msg" name="msg" placeholder="Cores, modelo, se já tem arte pronta..."></textarea></label>
+      <div class="form-foot">
+        <small>Vamos abrir o WhatsApp com a mensagem pronta. Você revisa antes de enviar.</small>
+        <button class="btn btn-royal" type="submit">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.8-1.2-4.6-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
+          Enviar no WhatsApp</button>
+      </div>
+      <div id="q-result" hidden>
+        <div class="preview" id="q-preview"></div>
+        <div class="preview-actions">
+          <a class="btn btn-ghost" id="q-link" href="#" target="_blank" rel="noopener">Abrir WhatsApp</a>
+          <button class="btn btn-ghost" type="button" id="q-copy">Copiar mensagem</button>
+          <output id="q-status"></output>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="visit" id="visite">
+  <div class="wrap">
+    <a class="mapcard" href="https://www.google.com/maps/search/?api=1&query=Rua+Monsenhor+Couto+494+Centro+Salto+SP" target="_blank" rel="noopener" aria-label="Abrir endereço no Google Maps">
+      <div class="street"></div><div class="street2"></div>
+      <div class="pin"><img src="assets/logo-selo.png" alt=""><span>Expansão</span></div>
+      <span class="open">Abrir no Maps ↗</span>
+    </a>
+    <div class="info">
+      <div class="eyebrow">Visite a fábrica</div>
+      <div class="addr">R. Monsenhor Couto, 494<small>Centro · Salto/SP · 13320-210</small></div>
+      <dl class="hours">
+        <div><dt>Segunda a sexta</dt><dd>09:00 às 17:30</dd></div>
+        <div><dt>WhatsApp</dt><dd>(11) 91737-8515</dd></div>
+      </dl>
+      <div><a class="btn btn-royal" href="https://wa.me/message/EUWQ4WI2HW5GJ1" target="_blank" rel="noopener">Chamar no WhatsApp</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/logo-branco.png" alt="Estamparia Expansão, desde 2020">
+    <p>Confecção própria · Estampa DTF · Sublimação total<br>Salto/SP · © <span id="yr">2026</span> Estamparia Expansão</p>
+    <nav aria-label="Rodapé">
+      <a href="https://www.instagram.com/expansao_estamparia/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/message/EUWQ4WI2HW5GJ1" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="#orcamento">Orçamento</a>
+    </nav>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/message/EUWQ4WI2HW5GJ1" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.8-1.2-4.6-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
+</a>
+
+<script>
+(function(){
+  var PHONE = "5511917378515";
+  var yr = document.getElementById("yr"); if (yr) yr.textContent = new Date().getFullYear();
+  var form = document.getElementById("quote-form");
+  var box = document.getElementById("q-result");
+  var prev = document.getElementById("q-preview");
+  var link = document.getElementById("q-link");
+  var copy = document.getElementById("q-copy");
+  var status = document.getElementById("q-status");
+  function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ""; }
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var tipo = (form.querySelector('input[name="tipo"]:checked') || {}).value || "";
+    var lines = ["Olá, Expansão! Quero um orçamento."];
+    if (val("q-nome")) lines.push("Nome: " + val("q-nome"));
+    if (val("q-org")) lines.push("Para: " + val("q-org"));
+    lines.push("Pedido: " + tipo);
+    if (val("q-qtd")) lines.push("Quantidade: " + val("q-qtd"));
+    lines.push("Técnica: " + val("q-tec"));
+    if (val("q-prazo")) lines.push("Prazo: " + val("q-prazo"));
+    if (val("q-msg")) lines.push("Detalhes: " + val("q-msg"));
+    var text = lines.join("\n");
+    var url = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text);
+    prev.textContent = text;
+    link.href = url;
+    box.hidden = false;
+    status.textContent = "";
+    var w = null;
+    try { w = window.open(url, "_blank", "noopener"); } catch(err) {}
+    if (!w) status.textContent = "Toque em Abrir WhatsApp para continuar.";
+  });
+  copy.addEventListener("click", function(){
+    var t = prev.textContent;
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(prev);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      status.textContent = "Mensagem selecionada. Copie com Ctrl+C.";
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(function(){ status.textContent = "Mensagem copiada."; }, fallback);
+    } else { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
